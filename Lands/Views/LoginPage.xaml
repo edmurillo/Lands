@@ -5,7 +5,7 @@
     x:Class="Lands.Views.LoginPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
     Title="Lands">
-	<ContentPage.Content>
+    <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Login}">
             <StackLayout
@@ -31,7 +31,7 @@
                     Grid.Row="0"
                     Keyboard="Text"
                     Placeholder="Enter your email..."
-                    Text="{Binding Email, Mode=TwoWey}">
+                    Text="{Binding Email, Mode=TwoWay}">
                 </Entry>
                 <Label
                     Grid.Column="0"
@@ -44,11 +44,11 @@
                     Grid.Row="1"
                     IsPassword="true"
                     Placeholder="Enter your password..."
-                    Text="{Binding Password, Mode=TwoWey}">
+                    Text="{Binding Password, Mode=TwoWay}">
                 </Entry>
             </Grid>
             <ActivityIndicator
-                    IsRunning="{Binding IsRunning, Mode=TwoWey}"
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
                     VerticalOptions="CenterAndExpand">
             </ActivityIndicator>
             <StackLayout
@@ -60,8 +60,8 @@
                     VerticalOptions="CenterAndExpand">
                  </Label>
                 <Switch
-                        IsToggled="{Binding Remembered, Mode=TwoWey}"
-                    HorizontalOptions="End">
+                        IsToggled="{Binding IsRemembered, Mode=TwoWay}"
+                        HorizontalOptions="End">
                 </Switch>
             </StackLayout>
                 <Label
@@ -76,9 +76,10 @@
                 <Button
                     BackgroundColor="Black"
                     BorderRadius="23"
-                        Command="{Binding Buttoncommand}"
+                    Command="{Binding LoginCommand}"
                     HeightRequest="46"
                     HorizontalOptions="FillAndExpand"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                     Text="Login"
                     TextColor="White">
                 </Button>
@@ -87,6 +88,7 @@
                     BorderRadius="23"
                     HeightRequest="46"
                     HorizontalOptions="FillAndExpand"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                     Text="Register"
                     TextColor="White">
                 </Button>
@@ -110,5 +112,5 @@
             </StackLayout>
         </StackLayout>
         </ScrollView>
-	</ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

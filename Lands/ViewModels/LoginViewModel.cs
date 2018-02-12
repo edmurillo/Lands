@@ -1,47 +1,113 @@
-﻿using System;
-namespace Lands.ViewModels
+﻿namespace Lands.ViewModels
 {
-    public class LoginViewModel
+    using System;
+    using System.ComponentModel;
+    using System.Windows.Input;
+    using GalaSoft.MvvmLight.Command;
+    using Xamarin.Forms;
+
+    public class LoginViewModel : BaseViewModel
     {
-        #region
-        public String Email
+        #region Attributes
+        private string email;
+        private string password;
+        private bool isRunning;
+        private bool isEnabled;
+        #endregion
+
+        #region Properties
+        public string Email
         {
-            get;
-            set;
+            get { return this.email; }
+            set {SetValue(ref this.email, value); }
         }
 
-        public String Password
+        public string Password
         {
-            get;
-            set;
+            get { return this.password; }
+            set { SetValue(ref this.password, value); }
         }
 
         public bool IsRunning
         {
+            get { return this.isRunning; }
+            set { SetValue(ref this.isRunning, value); }
+        }
+
+        public bool IsRemembered
+        {
             get;
             set;
         }
 
-        public String Remembered
+        public bool IsEnabled
         {
-            get;
-            set;
+            get { return this.isEnabled; }
+            set { SetValue(ref this.isEnabled, value); }
         }
         #endregion
 
-        #region Constructor
-        public Login()
+        #region Constructors
+        public LoginViewModel()
         {
-           
+            this.IsRemembered = true;
+            this.IsEnabled = true;
         }
         #endregion
 
         #region Commands
-        public String Buttoncommand
+        public ICommand LoginCommand
         {
-            get;
-            set;
+            get
+            {
+                return new RelayCommand(Login);
+            }
+        }
+
+        private async void Login()
+        {
+            if (string.IsNullOrEmpty(this.Email))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error", 
+                    "You must enter a email", 
+                    "Accept");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(this.Password))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "You must enter a password",
+                    "Accept");
+                return;
+            }
+
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
+            if (this.Email != "estiven@gmail.com" || this.Password != "1234")
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Email or password incorrect",
+                    "Accept");
+                this.Password = string.Empty;
+                return;
+            }
+
+            this.IsRunning = false;
+            this.IsEnabled = true;
+
+            await Application.Current.MainPage.DisplayAlert(
+                    "Ok",
+                    "Fuck yeaaa",
+                    "Accept");
         }
         #endregion
+
     }
 }

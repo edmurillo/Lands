@@ -11,14 +11,11 @@ namespace Lands.ViewModels
         }
         #endregion
 
-        #region
-        public LoginViewModel MyProperty
+        #region Constructor
+        public MainViewModel()
         {
-            get;
-            set;
+            this.Login = new LoginViewModel();
         }
         #endregion
-
-
     }
 }
