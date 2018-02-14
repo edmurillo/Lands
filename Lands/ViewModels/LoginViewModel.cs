@@ -103,10 +103,6 @@
             this.IsRunning = false;
             this.IsEnabled = true;
 
-            await Application.Current.MainPage.DisplayAlert(
-                    "Ok",
-                    "Fuck yeaaa",
-                    "Accept");
             this.email = string.Empty;
             this.Password = string.Empty;
 
