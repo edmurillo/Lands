@@ -51,8 +51,6 @@
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
-            this.email = "estiven@gmail.com";
-            this.password = "1234";
         }
         #endregion
 
@@ -96,6 +94,7 @@
                     "Error",
                     "Email or password incorrect",
                     "Accept");
+                this.email = string.Empty;
                 this.Password = string.Empty;
                 return;
             }
