@@ -51,6 +51,8 @@
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+
+            //http://restcountries.eu/rest/v2/all
         }
         #endregion
 
@@ -94,7 +96,6 @@
                     "Error",
                     "Email or password incorrect",
                     "Accept");
-                this.email = string.Empty;
                 this.Password = string.Empty;
                 return;
             }
@@ -102,7 +103,7 @@
             this.IsRunning = false;
             this.IsEnabled = true;
 
-            this.email = string.Empty;
+            this.Email = string.Empty;
             this.Password = string.Empty;
 
             MainViewModel.GetInstance().Lands = new LandsViewModel();

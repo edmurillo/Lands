@@ -106,6 +106,12 @@
     <Reference Include="GalaSoft.MvvmLight.Platform">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\xamarin.ios10\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lands\Lands.csproj">
