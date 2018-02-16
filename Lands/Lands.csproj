@@ -58,9 +58,10 @@
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Translations.cs" />
     <Compile Include="Models\RegionalBloc.cs" />
-    <Compile Include="Models\RootObject.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Services\ApiServices.cs" />
+    <Compile Include="Models\TokenResponse.cs" />
+    <Compile Include="Models\Land.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
